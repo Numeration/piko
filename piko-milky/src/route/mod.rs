@@ -1,13 +1,13 @@
 use crate::bot::Bot;
 use crate::event::Event;
-pub mod kind;
 mod meta;
 mod handle;
-
+pub mod kind;
 pub use {
     meta::*,
     handle::*,
 };
+
 use crate::kind::EventKind;
 
 pub trait RouterTrait<S, K>
