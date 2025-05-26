@@ -46,8 +46,11 @@ pub mod friend_info {
         #[serde(default)]
         pub no_cache: bool,
     }
-    
-    pub type GetResponse = Friend;
+
+    #[derive(Debug, Clone, Eq, PartialEq, Hash, Serialize, Deserialize)]
+    pub struct GetResponse {
+        pub friend: Friend
+    }
 
     impl_request!{"get_friend_info"| Get, GetResponse}
 }
@@ -83,7 +86,10 @@ pub mod group_info {
         pub no_cache: bool,
     }
 
-    pub type GetResponse = Group;
+    #[derive(Debug, Clone, Eq, PartialEq, Hash, Serialize, Deserialize)]
+    pub struct GetResponse {
+        pub group: Group
+    }
 
     impl_request!{"get_group_info"| Get, GetResponse}
 }
@@ -99,9 +105,31 @@ pub mod group_member_list {
         #[serde(default)]
         pub no_cache: bool,
     }
-    
-    pub type GetResponse = Vec<GroupMember>;
+
+    #[derive(Debug, Clone, Eq, PartialEq, Hash, Serialize, Deserialize)]
+    pub struct GetResponse {
+        pub members: Vec<GroupMember>
+    }
 
     impl_request!{"get_group_member_list"| Get, GetResponse}
 }
 
+pub mod group_member_info {
+    use serde::{Deserialize, Serialize};
+    use crate::entity::GroupMember;
+    use crate::impl_request;
+
+    #[derive(Debug, Clone, Eq, PartialEq, Hash, Serialize, Deserialize)]
+    pub struct Get {
+        pub group_id: i64,
+        #[serde(default)]
+        pub no_cache: bool,
+    }
+
+    #[derive(Debug, Clone, Eq, PartialEq, Hash, Serialize, Deserialize)]
+    pub struct GetResponse {
+        pub member: GroupMember
+    }
+
+    impl_request!{"get_group_member_info"| Get, GetResponse}
+}

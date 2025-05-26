@@ -126,8 +126,11 @@ pub mod group_announcement_list {
     pub struct Get {
         pub group_id: i64,
     }
-    
-    pub type GetResponse = Vec<GroupAnnouncement>;
+
+    #[derive(Debug, Clone, Eq, PartialEq, Hash, Serialize, Deserialize)]
+    pub struct GetResponse {
+        pub announcements: Vec<GroupAnnouncement>,
+    }
 
     impl_request!{"get_group_announcement_list"| Get, GetResponse}
 
