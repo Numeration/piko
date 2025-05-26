@@ -1,27 +1,14 @@
-
-
-pub mod entity;
-pub mod common;
 mod bot;
+pub mod common;
+pub mod entity;
 mod events;
 mod stream;
 
 mod route;
 
-mod proto;
 mod event;
+mod proto;
 
 mod error;
 
-pub use {
-    bot::*,
-    events::*,
-    stream::*,
-
-    route::*,
-
-    proto::*,
-    event::*,
-
-    error::*
-};
+pub use {bot::*, error::*, event::*, events::*, proto::*, route::*, stream::*};

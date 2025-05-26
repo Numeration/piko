@@ -1,6 +1,5 @@
 use thiserror::Error;
 
-
 pub type Result<T> = std::result::Result<T, Error>;
 
 #[derive(Error, Debug)]
@@ -13,10 +12,9 @@ pub enum Error {
 
     #[error(transparent)]
     Websocket(#[from] reqwest_websocket::Error),
-    
+
     #[error(transparent)]
     Event(#[from] EventError),
-    
 }
 
 #[derive(Error, Debug)]
