@@ -4,5 +4,6 @@ use serde::{Deserialize, Serialize};
 pub struct GroupMute {
     pub group_id: i64,
     pub user_id: i64,
+    pub operator_id: i64,
     pub duration: i32,
 }
