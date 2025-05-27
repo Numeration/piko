@@ -28,6 +28,7 @@ pub struct Reply {
 #[derive(Debug, Clone, Eq, PartialEq, Hash, Serialize, Deserialize)]
 pub struct Image {
     pub resource_id: FastStr,
+    pub temp_url: FastStr,
     #[serde(skip_serializing_if="Option::is_none")]
     pub summary: Option<FastStr>,
     pub sub_type: SubType,
@@ -36,12 +37,14 @@ pub struct Image {
 #[derive(Debug, Clone, Eq, PartialEq, Hash, Serialize, Deserialize)]
 pub struct Record {
     pub resource_id: FastStr,
+    pub temp_url: FastStr,
     pub duration: i32,
 }
 
 #[derive(Debug, Clone, Eq, PartialEq, Hash, Serialize, Deserialize)]
 pub struct Video {
     pub resource_id: FastStr,
+    pub temp_url: FastStr,
 }
 
 #[derive(Debug, Clone, Eq, PartialEq, Hash, Serialize, Deserialize)]
