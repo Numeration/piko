@@ -172,6 +172,7 @@ pub mod group_message_reaction {
 
     #[derive(Debug, Clone, Eq, PartialEq, Hash, Serialize, Deserialize)]
     pub struct Send {
+        group_id: i64,
         message_seq: i64,
         reaction: FastStr,
         
